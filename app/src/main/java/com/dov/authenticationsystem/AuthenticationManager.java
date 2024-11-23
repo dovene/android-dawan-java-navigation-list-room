@@ -6,7 +6,8 @@ public class AuthenticationManager {
     private static AuthenticationManager instance;
     private ArrayList<User> userList = new ArrayList<>();
 
-    private AuthenticationManager() {}
+    private AuthenticationManager() {
+    }
 
     public static AuthenticationManager getInstance() {
         if (instance == null) {
@@ -36,6 +37,15 @@ public class AuthenticationManager {
 
     public ArrayList<User> getAllUsers() {
         return userList;
+    }
+
+    public void deleteUser(String login) {
+        for (User user : userList) {
+            if (user.getLogin().equals(login)) {
+                userList.remove(user);
+                break;
+            }
+        }
     }
 }
 

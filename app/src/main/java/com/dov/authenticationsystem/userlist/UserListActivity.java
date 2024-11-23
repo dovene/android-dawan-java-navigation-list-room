@@ -31,9 +31,9 @@ public class UserListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         userListRecyclerViewAdapter = new UserListRecyclerViewAdapter(AuthenticationManager.getInstance().getAllUsers(), new UserListRecyclerViewAdapter.OnItemAction() {
             @Override
-            public void delete(int position) {
-                AuthenticationManager.getInstance().getAllUsers().remove(position);
-                userListRecyclerViewAdapter.setOperations(AuthenticationManager.getInstance().getAllUsers());
+            public void delete(String login) {
+                AuthenticationManager.getInstance().deleteUser(login);
+                userListRecyclerViewAdapter.setUsers(AuthenticationManager.getInstance().getAllUsers());
             }
 
             @Override

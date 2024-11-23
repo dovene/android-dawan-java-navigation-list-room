@@ -23,11 +23,11 @@ public class UserListViewHolder extends RecyclerView.ViewHolder {
         deleteImageView = itemView.findViewById(R.id.delete_iv);
     }
 
-    public void bind(User user, int position, UserListRecyclerViewAdapter.OnItemAction onItemAction) {
+    public void bind(User user, UserListRecyclerViewAdapter.OnItemAction onItemAction) {
         loginTextView.setText(user.getLogin());
         nameTextView.setText(user.getName());
         deleteImageView.setOnClickListener(v -> {
-            onItemAction.delete(position);
+            onItemAction.delete(user.getLogin());
         });
         itemView.setOnClickListener(v -> {
             onItemAction.showDetails(user);
