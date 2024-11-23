@@ -20,7 +20,7 @@
             android:name=".userlist.UserListActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,8 +29,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterActivity"
-            android:parentActivityName=".LoginActivity"
+            android:name=".register.RegisterActivity"
+            android:parentActivityName=".login.LoginActivity"
             android:exported="false" />
     </application>
 

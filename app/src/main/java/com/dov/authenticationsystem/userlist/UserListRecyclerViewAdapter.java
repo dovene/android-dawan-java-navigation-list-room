@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class UserListRecyclerViewAdapter extends RecyclerView.Adapter<UserListViewHolder> {
 
     public interface OnItemAction {
-        void delete(int position);
+        void delete(String login);
         void showDetails(User user);
     }
 
@@ -28,7 +28,7 @@ public class UserListRecyclerViewAdapter extends RecyclerView.Adapter<UserListVi
         this.onItemAction = onItemAction;
     }
 
-    public void setOperations(ArrayList<User> users) {
+    public void setUsers(ArrayList<User> users) {
         this.users = users;
         notifyDataSetChanged();
     }
@@ -43,7 +43,7 @@ public class UserListRecyclerViewAdapter extends RecyclerView.Adapter<UserListVi
 
     @Override
     public void onBindViewHolder(@NonNull UserListViewHolder holder, int position) {
-        holder.bind(users.get(position), position, onItemAction);
+        holder.bind(users.get(position), onItemAction);
     }
 
     @Override
